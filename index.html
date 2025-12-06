@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>T. Yamini – Game Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      color: #f9fafb;
+      /* Animated gradient background */
+      background: linear-gradient(-45deg, #1e3c72, #2a0845, #ff512f, #dd2476);
+      background-size: 400% 400%;
+      animation: gradientBG 18s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px 40px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      margin-left: 16px;
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    nav a:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 32px;
+      align-items: center;
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(15, 23, 42, 0.82);
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(16px);
+      margin-bottom: 32px;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: #e5e7eb;
+      margin-bottom: 14px;
+    }
+
+    .hero-text {
+      font-size: 0.98rem;
+      line-height: 1.6;
+      color: #d1d5db;
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      font-size: 0.9rem;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.18s ease-in-out;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #f97316, #ec4899);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 10px 25px rgba(236, 72, 153, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(236, 72, 153, 0.55);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.9);
+    }
+
+    .btn-outline:hover {
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    /* Profile Image with animated border */
+    .hero-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-wrapper {
+      padding: 4px;
+      border-radius: 999px;
+      background: conic-gradient(from 0deg, #ff00ff, #00ffff, #ff00ff);
+      animation: spinBorder 6s linear infinite;
+      display: inline-flex;
+    }
+
+    @keyframes spinBorder {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .profile-inner {
+      padding: 4px;
+      border-radius: 999px;
+      background: #020617;
+    }
+
+    .profile-photo {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 32px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title span {
+      font-size: 1.4rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    .card,
+    .card-alt {
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      background: rgba(15, 23, 42, 0.92);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.7);
+    }
+
+    .card-alt {
+      background: rgba(30, 64, 175, 0.9);
+    }
+
+    .card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #e5e7eb;
+      margin-bottom: 4px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+    }
+
+    .badge {
+      font-size: 0.78rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      color: #e5e7eb;
+    }
+
+    .list {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      list-style: disc;
+      padding-left: 18px;
+    }
+
+    .list li {
+      margin-bottom: 4px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    /* Footer / Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .contact-item {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .contact-item span {
+      font-weight: 500;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      opacity: 0.8;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER -->
+    <header>
+      <div class="logo">T. Yamini</div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-left">
+        <h1 class="hero-title">T. Yamini – Game & Software Enthusiast</h1>
+        <p class="hero-subtitle">B.Tech CSE | AI & Web Development | Game Portfolio</p>
+        <p class="hero-text">
+          I’m a Computer Science student passionate about building intelligent applications,
+          game-inspired experiences, and impactful real-world solutions using AI, web technologies,
+          and clean code. I enjoy turning ideas into working projects – from recommender agents to
+          smart parking systems and food redistribution platforms.
+        </p>
+
+        <div class="hero-tags">
+          <span class="tag">CSE Student</span>
+          <span class="tag">AI & ML</span>
+          <span class="tag">Web Development</span>
+          <span class="tag">Game Enthusiast</span>
+        </div>
+
+        <div class="hero-actions">
+          <!-- Put your resume file as resume.pdf in same folder -->
+          <a href="resume.pdf" class="btn-primary" download>
+            ⬇ Download Resume
+          </a>
+          <a href="#projects" class="btn-outline">
+            👾 View Projects
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <!-- Profile with animated border -->
+        <div class="profile-wrapper">
+          <div class="profile-inner">
+            <!-- IMPORTANT: Save your photo as profile.jpg in same folder as this HTML -->
+            <img src="yamini photo.jpeg" alt="Profile Photo" class="profile-photo" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT + SKILLS -->
+    <section id="about">
+      <div class="section-title">
+        <span>👤</span> About & Skills
+      </div>
+      <div class="two-col">
+        <div class="card">
+          <h3>About Me</h3>
+          <p>
+            I am currently pursuing B.Tech in Computer Science and Engineering, with hands-on
+            experience in building AI-driven and web-based applications. I enjoy solving problems,
+            collaborating in teams, and continuously learning new tools and technologies.
+          </p>
+          <p>
+            My interests span across AI/ML, full-stack web development, and game-inspired
+            interactive systems. I love working on projects that create real impact – such as
+            smart resource management, healthcare prediction, and automation.
+          </p>
+        </div>
+
+        <div class="card-alt">
+          <h3>Technical Skills</h3>
+          <ul class="list">
+            <li><strong>Languages:</strong> C, Java, Python, JavaScript, SQL</li>
+            <li><strong>Web:</strong> HTML, CSS, ReactJS, PHP</li>
+            <li><strong>AI / ML:</strong> TensorFlow, basic ML models, CNN</li>
+            <li><strong>Backend / Tools:</strong> Flask, Git, GitHub, VS Code</li>
+            <li><strong>Databases / Cloud:</strong> MySQL, Firebase</li>
+          </ul>
+          <div class="pill-row">
+            <span class="pill">Problem Solving</span>
+            <span class="pill">Teamwork</span>
+            <span class="pill">Adaptability</span>
+            <span class="pill">Communication</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-title">
+        <span>📂</span> Projects
+      </div>
+
+      <div class="two-col" style="margin-bottom:16px;">
+        <div class="card">
+          <h3>Recommender AI Agent</h3>
+          <p>
+            Built an intelligent recommender agent combining Large Language Models (LLMs) with
+            collaborative and content-based filtering techniques to provide personalized suggestions.
+          </p>
+          <p>
+            Focused on modular design, clean APIs, and explainable recommendations.
+          </p>
+          <div class="badge-row">
+            <span class="badge">Python</span>
+            <span class="badge">LLM</span>
+            <span class="badge">Recommender System</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>ParkEase – Smart Urban Parking System</h3>
+          <p>
+            Designed a smart parking solution to optimize urban parking space usage, reduce congestion,
+            and improve user convenience through real-time slot availability and navigation.
+          </p>
+          <div class="badge-row">
+            <span class="badge">IoT Concept</span>
+            <span class="badge">Web/App</span>
+            <span class="badge">Optimization</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Smart Food Redistribution Platform</h3>
+          <p>
+            Developed a mobile and web platform to reduce food wastage by redistributing surplus food
+            from donors to NGOs/receivers using real-time tracking and classification.
+          </p>
+          <p>
+            Implemented a custom CNN model using TensorFlow to classify food as fresh or spoiled and
+            used Flask as backend with Firebase authentication & GPS-based tracking.
+          </p>
+          <div class="badge-row">
+            <span class="badge">TensorFlow</span>
+            <span class="badge">CNN</span>
+            <span class="badge">Flask</span>
+            <span class="badge">Firebase</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Breast Cancer Survival Prediction</h3>
+          <p>
+            Built a survival prediction model using gene sequence data achieving around 99% accuracy.
+            The work was published in an IEEE International Conference on Computational Systems and
+            Information Technology for Sustainable Solutions.
+          </p>
+          <div class="badge-row">
+            <span class="badge">Machine Learning</span>
+            <span class="badge">Python</span>
+            <span class="badge">Healthcare</span>
+            <span class="badge">IEEE Paper</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS & CERTIFICATIONS -->
+    <section id="achievements">
+      <div class="section-title">
+        <span>🏅</span> Achievements & Certifications
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <h3>Achievements</h3>
+          <ul class="list">
+            <li>Published IEEE paper on Breast Cancer Survival Prediction using gene sequence data.</li>
+            <li>Achieved Silver & Gold level on HackerRank in Python.</li>
+            <li>Solved 100+ problems on CodeChef and 50+ problems on LeetCode.</li>
+            <li>FFE Scholarship recipient.</li>
+            <li>Developed a smart food redistribution platform with AI-based classification.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Certifications</h3>
+          <ul class="list">
+            <li>C Programming – Cisco Networking Academy</li>
+            <li>Python Programming – Cisco Networking Academy</li>
+            <li>Java Programming – NPTEL</li>
+            <li>ReactJS Certification (2025)</li>
+            <li>Other academic and technical workshop certificates</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title">
+        <span>📨</span> Contact
+      </div>
+
+      <div class="card contact-grid">
+        <div class="contact-item">
+          <span>Email:</span><br />
+          <!-- Replace with your actual email -->
+          <a href="mailto:youremail@example.com">youremail@example.com</a>
+        </div>
+        <div class="contact-item">
+          <span>GitHub:</span><br />
+          <!-- Replace with your actual GitHub -->
+          <a href="https://github.com/your-github" target="_blank">github.com/your-github</a>
+        </div>
+        <div class="contact-item">
+          <span>LinkedIn:</span><br />
+          <!-- Replace with your actual LinkedIn -->
+          <a href="https://linkedin.com/in/your-linkedin" target="_blank">linkedin.com/in/your-linkedin</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> T. Yamini • Game & Software Portfolio
+    </footer>
+  </div>
+
+  <script>
+    // Dynamic year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
